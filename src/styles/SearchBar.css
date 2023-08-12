@@ -1,0 +1,18 @@
+.search-container {
+    position: absolute;
+    top: 0;
+    right: 250px;
+    left: auto;
+    width: 100px;
+    padding: 12px 20px;
+    background-color: #111827;
+    z-index: 999;
+}
+
+.search-container input {
+    background-color: #111827;
+    padding: 8px;
+    border: solid #ffffff9e 1px;
+    border-radius: 4px;
+    color: #fff;
+}

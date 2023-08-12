@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import NavComponent from './components/Navbar';
+import Main from "./components/MainComponent";
+import OverviewComponent from "./components/OverviewComponent";
+import SearchBar from './components/SearchBar';
+
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(prevMode => !prevMode);
+  };
+
+  const appClass = isDarkMode ? 'dark-mode' : 'light-mode';
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavComponent/>
+      <SearchBar/>
+      <div className={`App ${appClass}`}>
+        <div className={`dark-mode-toggle ${appClass}`}>
+          <label className="switch">
+            <input type="checkbox" onChange={toggleDarkMode} checked={isDarkMode} />
+            <span className="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <Main/>
+      <OverviewComponent/>
     </div>
   );
 }
